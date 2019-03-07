@@ -12,11 +12,12 @@ const app = express();
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.set('json spaces', 2);
 
 //routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/articles', articlesRouter)
+app.use('/api', articlesRouter)
 
 //out port
 const port = process.env.PORT || 3000; 
